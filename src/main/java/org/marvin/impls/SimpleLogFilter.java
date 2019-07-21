@@ -13,7 +13,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-
 /**
  *
  *  The class {@code SimpleLogFilter} it simple implementation interface
@@ -86,7 +85,10 @@ public class SimpleLogFilter implements Filter {
                      "(-s|--start)\\s\"(\\d{2,4}-\\d{2}-\\d{2}.*Z)\"\\s(-e|--e)\\s\"(\\d{2,4}-\\d{2}-\\d{2}.*Z)\"");
 
         methodMap.put(SimpleLogFilter.class.getDeclaredMethod("filterByDurationFromStart",String.class,String.class,String.class),
-                     "(-s|--start)\\s\"(\\d{2,4}-\\d{2}-\\d{2}.*Z)\"\\s-p|--period\\s\"(P\\d.*)\"");
+                     "(-s|--start)\\s\"(\\d{2,4}-\\d{2}-\\d{2}.*Z)\"\\s(-p|--period)\\s\"(P\\d.*)\"");
+
+        methodMap.put(SimpleLogFilter.class.getDeclaredMethod("filterByDurationFromEnd", String.class, String.class, String.class),
+                     "(-e|--end)\\s\"(\\d{2,4}-\\d{2}-\\d{2}.*Z)\"\\s(-p|--period)\\s\"(P\\d.*)\"");
 
         methodMap.put(SimpleLogFilter.class.getDeclaredMethod("filterByLogLayer",String.class,String.class),
                      "-l \"((?:(INFO|DEBUG|TRACE|WARN|ERROR),?)+)\"");
@@ -180,6 +182,7 @@ public class SimpleLogFilter implements Filter {
 
     @Override
     public String filterByDurationFromStart(String start, String durationPattern, String log) {
+
 
         DateTimeFormatter df = DateTimeFormatter.ofPattern(timePattern);
         LocalDateTime starz= LocalDateTime.parse(start, df);
@@ -276,7 +279,12 @@ public class SimpleLogFilter implements Filter {
 
             Matcher matcher = pattern.matcher(line);
             if (matcher.matches()) {
-                if (matcher.group(4).trim().matches(mask)) {
+
+                String msg = matcher.group(4).trim();
+                Pattern subpatter = Pattern.compile(mask);
+                Matcher subMatcher = subpatter.matcher(msg);
+
+                if(subMatcher.find()) {
                     sb.append(line).append("\n");
                 }
 

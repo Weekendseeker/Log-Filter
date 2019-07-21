@@ -27,7 +27,18 @@ public class FileSource implements LogSource {
 
     @Override
     public void saveLog(String log,String path)  {
-        if (log == null )throw new IllegalArgumentException("Log is empty");
+
+        if (log == null || log.equals("")){
+            System.out.println("Log is empty");
+            return;
+        }
+
+        if(path == null || log.equals("")){
+            System.out.println("Log is empty");
+            return;
+
+        }
+
         saveLog(log.getBytes(),path);
     }
 
@@ -44,17 +55,30 @@ public class FileSource implements LogSource {
     @Override
     public void saveLog(byte[] log,String path) {
 
+        if(path == null || path.equals("")){
+
+            System.out.println("Path " + path + " is empty");
+            System.exit(1);
+
+        }
+
+        if(log.length == 0) {
+
+            System.out.println("Log is empty");
+            System.exit(0);
+        }
+
         File file = new File(path);
 
         if(!file.exists()) {
             try {
                 if(file.createNewFile()){
-                    System.out.println("File " + path +  "created successful" );
+                    System.out.println("File " + path + " created successful" );
                 }
 
             } catch (IOException e) {
                 System.out.println("Error with create file " + path +
-                                   "Perhaps there is no access.");
+                                   " Perhaps there is no access.");
 
                 System.exit(1);
             }
@@ -83,7 +107,7 @@ public class FileSource implements LogSource {
 
         File file = new File(path);
         if(!fileIsExist(path)) {
-            System.out.println("File " + path + "is not exists");
+            System.out.println("File " + path + " is not exists");
             System.exit(1);
         }
 

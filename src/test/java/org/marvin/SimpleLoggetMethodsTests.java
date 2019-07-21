@@ -2,7 +2,10 @@ package org.marvin;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.marvin.impls.FileSource;
 import org.marvin.impls.SimpleLogFilter;
+
+import java.text.ParseException;
 
 public class SimpleLoggetMethodsTests {
 
@@ -163,6 +166,24 @@ public class SimpleLoggetMethodsTests {
         String filterResult = logFilter.filterByThread("worker-[23]", filterByThreadLog);
 
         Assert.assertEquals(filterByThreadLogResult,filterResult);
+
+    }
+
+    @Test
+    public void gere(){
+
+
+        //((-\w+)\s)
+
+//        LogGenerator generator = new LogGenerator();
+//        try {
+//
+//            FileSource fileSource = new FileSource();
+//            fileSource.saveLog(generator.generateLogByDate(30),"D:\\Loooog.log");
+//
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
 
     }
 }

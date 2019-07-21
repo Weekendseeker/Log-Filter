@@ -67,9 +67,12 @@ public class CommandParser {
 
                 writeLog(filteredQuery);
 
-                break;
+                return;
             }
+
         }
+
+        System.out.println("Bad query " + query);
     }
 
     /**
@@ -105,14 +108,14 @@ public class CommandParser {
     private void writeLog (String log) {
 
         if (log == null || log.equals("") || log.length() == 0) {
-            System.out.println("Empty log cancle write");
-            System.exit(0);
+            System.out.println("Empty log  ");
+            return;
         }
 
         String outLogPath = Configuration.getInstance().getOutLogPath();
 
-        if(outLogPath.equals("") || outLogPath == null)
-                outLogPath = Configuration.getInstance().getInLogPath();
+        if(outLogPath == null || outLogPath.equals(""))
+            outLogPath = Configuration.getInstance().getInLogPath();
 
         fileSource.saveLog(log, outLogPath);
     }

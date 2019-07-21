@@ -1,3 +1,5 @@
+package org.marvin;
+
 import org.marvin.config.Configuration;
 import org.marvin.impls.*;
 
