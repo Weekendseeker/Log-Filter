@@ -1,0 +1,23 @@
+19-05-23T20:57:20.564Z INFO [     main] Starting up an application
+19-05-23T20:57:25.872Z INFO [     main] Initializing a worker pool
+19-05-23T20:57:30.032Z INFO [     worker-1] Run task #1241
+19-05-23T20:57:32.421Z INFO [     worker-2] Run task #717
+19-05-23T20:57:33.843Z INFO [     main] Connecting to storage:3121
+19-05-23T20:57:58.931Z INFO [     worker-2] Task #717 has been completed
+19-05-23T20:57:59.001Z INFO [     main] Connection established
+19-05-23T20:58:14.315Z WARN [     worker-3] Run task #467
+19-05-23T20:58:15.917Z WARN [     worker-3] Task #467 is not configured
+19-05-23T20:58:34.143Z INFO [     worker-1] Task #1241 has been completed
+19-05-23T20:58:40.719Z INFO [     main] Application started successfully
+19-05-23T20:58:44.242Z INFO [     worker-2] Run task #937
+19-05-23T20:58:56.964Z ERROR [     worker-3] Task #467 finished with fail
+19-05-23T20:58:57.234Z WARN [     worker-3] Task #467 cannot be rescheduled
+19-05-23T20:59:21.622Z INFO [     main] DB health-check succeded
+19-05-23T20:59:32.421Z ERROR [     worker-1] Task #8272 crashed during startup
+19-05-23T20:59:33.642Z WARN [     worker-2] Task #937 has been completed
+19-05-23T20:59:33.186Z DEBUG [     worker-1] Task #8272 will be restarted
+19-05-23T20:59:39.037Z INFO [     worker-3] Run task #819
+19-05-23T20:59:43.146Z INFO [     worker-2] Run task #2911
+19-05-23T21:00:19.620Z INFO [     worker-3] Task #819 has been completed
+19-05-23T21:00:20.821Z ERROR [     main] DB health-check failed
+19-05-23T21:00:23.422Z INFO [     worker-2] Task #2911 has been completed

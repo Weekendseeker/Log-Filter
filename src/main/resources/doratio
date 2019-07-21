@@ -1,0 +1,8 @@
+19-05-23T20:57:20.564Z INFO [     main] Starting up an application
+19-05-24T20:57:25.872Z INFO [     main] Initializing a worker pool
+19-05-25T20:57:30.032Z INFO [     worker-1] Run task #1241
+19-05-26T20:57:32.421Z INFO [     worker-2] Run task #717
+19-05-27T20:57:33.843Z INFO [     main] Connecting to storage:3121
+19-05-28T20:57:58.931Z INFO [     worker-2] Task #717 has been completed
+19-05-29T20:57:59.001Z INFO [     main] Connection established
+19-05-30T20:58:14.315Z WARN [     worker-3] Run task #467

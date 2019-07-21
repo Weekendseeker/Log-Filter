@@ -1,0 +1,4 @@
+19-05-23T20:58:56.964Z ERROR [     worker-3] Task #467 finished with fail
+19-05-23T20:59:32.421Z ERROR [     worker-1] Task #8272 crashed during startup
+19-05-23T20:59:33.186Z DEBUG [     worker-1] Task #8272 will be restarted
+19-05-23T21:00:20.821Z ERROR [     main] DB health-check failed
