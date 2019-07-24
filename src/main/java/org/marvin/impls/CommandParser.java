@@ -13,7 +13,6 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
 /**
  * CommandParser it class for parse queries and execute filters methods
  * and write result to file.
@@ -52,14 +51,12 @@ public class CommandParser {
         for (Map.Entry<Method, String> entry : methodMap.entrySet()) {
 
             String regex = entry.getValue();
-            Pattern pattern = Pattern.compile(entry.getValue());
+            Pattern pattern = Pattern.compile(regex);
             Matcher matcher = pattern.matcher(query);
 
             if (matcher.find()) {
 
                 Method method = entry.getKey();
-                String[] options = query.replaceAll(regex + "\\s", "").split("\\s");
-                Configuration.getInstance().parseOptions(options);
 
                 String parametrs = matcher.group().replaceAll("((-\\w+)\\s)", "");
 
@@ -69,10 +66,7 @@ public class CommandParser {
 
                 return;
             }
-
         }
-
-        System.out.println("Bad query " + query);
     }
 
     /**

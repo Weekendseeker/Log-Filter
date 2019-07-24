@@ -153,8 +153,6 @@ public class AppFasade {
             System.exit(-1);
         }
 
-
-
         String logData = new String(commandParser.getFileSource().getLog(args[args.length - 1]));
 
         if( logData.equals("") || logData == null){
@@ -164,8 +162,7 @@ public class AppFasade {
 
         } else Configuration.getInstance().setLogData(logData);
 
-        if(args[0].equals("-c") || args[0].equals("--stats"))
-            Configuration.getInstance().setPrintStatisticAfter(true);
+        Configuration.getInstance().parseOptions(args);
 
         Configuration.getInstance().setInLogPath(args[args.length - 1]);
     }
